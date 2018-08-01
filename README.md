@@ -14,14 +14,16 @@ Summary: An alternative approach to non-standard evaluation using formulas. Prov
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/r-lazyeval-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/r-lazyeval-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/r-lazyeval-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/r-lazyeval-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/r-lazyeval-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/r-lazyeval-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-lazyeval-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-lazyeval-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/r-lazyeval-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-lazyeval-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-lazyeval-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-lazyeval-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-lazyeval/badges/version.svg)](https://anaconda.org/conda-forge/r-lazyeval)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-lazyeval/badges/downloads.svg)](https://anaconda.org/conda-forge/r-lazyeval)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-r--lazyeval-green.svg)](https://anaconda.org/conda-forge/r-lazyeval) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/r-lazyeval.svg)](https://anaconda.org/conda-forge/r-lazyeval) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/r-lazyeval.svg)](https://anaconda.org/conda-forge/r-lazyeval) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/r-lazyeval.svg)](https://anaconda.org/conda-forge/r-lazyeval) |
 
 Installing r-lazyeval
 =====================
