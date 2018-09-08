@@ -1,4 +1,4 @@
-{% set version = "0.2.1" %}
+{% set version = '0.2.1' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -10,14 +10,13 @@ package:
 source:
   fn: lazyeval_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/lazyeval_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/lazyeval/lazyeval_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/lazyeval_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/lazyeval/lazyeval_{{ version }}.tar.gz
   sha256: 83b3a43e94c40fe7977e43eb607be0a3cd64c02800eae4f2774e7866d1e93f61
 
 build:
   merge_build_host: True  # [win]
-  number: 1
-  skip: true  # [win32]
+  number: 2
 
   rpaths:
     - lib/R/lib/
@@ -25,18 +24,24 @@ build:
 
 requirements:
   build:
-    - posix                # [win]
-    - {{ compiler('c') }}        # [unix]
-    - {{ compiler('m2w64_c') }}  # [win]
+    - {{ compiler('c') }}        # [not win]
+    - {{native}}toolchain        # [win]
+    - {{posix}}filesystem        # [win]
+    - {{posix}}make
+    - {{posix}}sed               # [win]
+    - {{posix}}coreutils         # [win]
+    - {{posix}}zip               # [win]
+
   host:
     - r-base
 
   run:
     - r-base
+    - {{native}}gcc-libs         # [win]
 
 test:
   commands:
-    - $R -e "library('lazyeval')"  # [not win]
+    - $R -e "library('lazyeval')"           # [not win]
     - "\"%R%\" -e \"library('lazyeval')\""  # [win]
 
 about:
@@ -46,8 +51,14 @@ about:
     implementation of LISP style 'quasiquotation', making it easier to generate code
     with other code.
   license_family: GPL3
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
+  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
 
 extra:
   recipe-maintainers:
     - johanneskoester
     - bgruening
+    - daler
+    - jdblischak
+    - cbrueffer
+    - dbast
